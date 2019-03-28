@@ -45,10 +45,17 @@ yarn global add yo
 To bootstrap a React web project, use the `web` generator:
 
 ```sh
-mkdir my-new-project
-cd my-new-project
+mkdir my-new-web-project
+mkdir my-new-mobile-project
+
+cd my-new--web-project
 
 yo @bkonkle/react:web
+
+cd my-new--mobile-project
+
+yo @bkonkle/react:mobile
+
 ```
 
 Answer the questions, and you'll have a brand new web application set up in your current directory. Tada! 🎉
