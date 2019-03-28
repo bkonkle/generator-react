@@ -12,10 +12,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const BaseReactGenerator_1 = __importDefault(require("../../src/BaseReactGenerator"));
-class WebGenerator extends BaseReactGenerator_1.default {
+class MobileGenerator extends BaseReactGenerator_1.default {
     constructor() {
         super(...arguments);
-        this.subgenerator = 'web';
+        this.subgenerator = 'mobile';
     }
     initializing() {
         BaseReactGenerator_1.default.prototype.initializing.call(this);
@@ -27,12 +27,10 @@ class WebGenerator extends BaseReactGenerator_1.default {
     }
     writing() {
         BaseReactGenerator_1.default.prototype.writing.call(this);
-        // Move some extra dotfiles into place
-        this.renameDotfiles(['dockerignore']);
     }
     install() {
         BaseReactGenerator_1.default.prototype.install.call(this);
     }
 }
-exports.default = WebGenerator;
+exports.default = MobileGenerator;
 //# sourceMappingURL=index.js.map

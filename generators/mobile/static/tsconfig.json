@@ -1,8 +1,8 @@
 {
-  "compileOnSave": false,
   "compilerOptions": {
+    "outDir": "build",
     "strict": true,
-    "noImplicitAny": false,
+    "noImplicitAny": true,
     "noFallthroughCasesInSwitch": true,
     "downlevelIteration": true,
     "strictFunctionTypes": true,
@@ -11,7 +11,7 @@
     "forceConsistentCasingInFileNames": true,
     "noErrorTruncation": true,
     "jsx": "react",
-    "target": "es2015",
+    "target": "es5",
     "module": "commonjs",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
@@ -22,17 +22,19 @@
     "preserveConstEnums": true,
     "sourceMap": true,
     "baseUrl": ".",
-    "typeRoots": [
-      "./node_modules/@types"
-    ],
+    "typeRoots": ["./node_modules/@types"],
     "lib": [
       "dom",
       "esnext.asynciterable",
       "es2015",
       "es2016",
       "es2017.object"
-    ]
-  },
-  "include": ["src", "generators"],
-  "exclude": ["**/static", "**/templates"]
+    ],
+    "paths": {
+      "*": [
+        "*",
+        "src/bindings/*"
+      ]
+    }
+  }
 }

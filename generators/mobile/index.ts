@@ -1,9 +1,9 @@
 import BaseGenerator, {BaseConfig} from '../../src/BaseReactGenerator'
 
-export interface WebConfig extends BaseConfig {}
+export interface MobileConfig extends BaseConfig {}
 
-export default class WebGenerator extends BaseGenerator {
-  subgenerator = 'web'
+export default class MobileGenerator extends BaseGenerator {
+  subgenerator = 'mobile'
 
   initializing () {
     BaseGenerator.prototype.initializing.call(this)
@@ -15,9 +15,6 @@ export default class WebGenerator extends BaseGenerator {
 
   writing () {
     BaseGenerator.prototype.writing.call(this)
-
-    // Move some extra dotfiles into place
-    this.renameDotfiles(['dockerignore'])
   }
 
   install () {
