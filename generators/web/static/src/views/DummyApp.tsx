@@ -4,7 +4,7 @@ import {Provider} from 'react-redux'
 import {ApolloProvider} from 'react-apollo'
 
 import BrowserConfig from '../BrowserConfig'
-import Store, {ReduxStore} from './state/Store'
+import Store, {ReduxStore} from '../state/Store'
 
 interface Props {}
 

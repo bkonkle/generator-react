@@ -7,6 +7,7 @@ module.exports = {
           'ie': 11,
         },
         'useBuiltIns': 'entry',
+        'corejs': 3,
         'modules': 'commonjs',
       }
     ],
