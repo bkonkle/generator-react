@@ -19,13 +19,13 @@ Brandon's Yeoman generators for scaffolding new React applications
 ## Installation
 
 ```sh
-$ yarn global add @bkonkle/generator-react
+yarn global add @bkonkle/generator-react
 ```
 
 You can also use npm:
 
 ```sh
-$ npm install -g @bkonkle/generator-react
+npm install -g @bkonkle/generator-react
 ```
 
 ## Usage
@@ -37,7 +37,7 @@ Currently, my only generator builds a simple React web project with very light s
 First, you'll need to install Yeoman to use this generator.
 
 ```sh
-$ yarn global add yo
+yarn global add yo
 ```
 
 ### React
@@ -45,9 +45,10 @@ $ yarn global add yo
 To bootstrap a React web project, use the `web` generator:
 
 ```sh
-$ mkdir my-new-project
-$ cd my-new-project
-$ yo @bkonkle/react:web
+mkdir my-new-project
+cd my-new-project
+
+yo @bkonkle/react:web
 ```
 
 Answer the questions, and you'll have a brand new web application set up in your current directory. Tada! 🎉
