@@ -22,7 +22,7 @@ const resolveApp = relativePath => path.resolve(appDirectory, relativePath)
 const isDev = process.env.NODE_ENV === 'development'
 const protocol = process.env.PROTOCOL || 'http'
 const host = process.env.HOST || 'localhost'
-const port = process.env.PORT ? Number(process.env.PORT) : 3000
+const port = process.env.PORT ? Number(process.env.PORT) : 4000
 const analyzeBundle = !!process.env.ANALYZE_BUNDLE
 
 const config: Configuration = {
