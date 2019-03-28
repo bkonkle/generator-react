@@ -1,7 +1,6 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "outDir": "lib",
     "strict": true,
     "noImplicitAny": false,
     "noFallthroughCasesInSwitch": true,
@@ -24,7 +23,6 @@
     "sourceMap": true,
     "baseUrl": ".",
     "typeRoots": [
-      "./src/custom-typings",
       "./node_modules/@types"
     ],
     "lib": [
@@ -33,18 +31,8 @@
       "es2015",
       "es2016",
       "es2017.object"
-    ],
+    ]
   },
-  "include": [
-    "webpack.config.ts",
-    "scripts",
-    "docs/src",
-    "packages"
-  ],
-  "exclude": [
-    "src/custom-typings",
-    "node_modules",
-    "lib",
-    "packages/cfund/lib"
-  ]
+  "include": ["generators"],
+  "exclude": ["**/static", "**/templates"]
 }

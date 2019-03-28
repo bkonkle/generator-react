@@ -16,7 +16,8 @@
     "react"
   ],
   "scripts": {
-    "check.types": "npx tsc --pretty --noEmit --skipLibCheck",
+    "build": "npx tsc --pretty --skipLibCheck",
+    "check.types": "yarn build --noEmit",
     "lint": "tslint --format stylish --project tsconfig.json"
   },
   "dependencies": {
