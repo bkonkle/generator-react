@@ -1,9 +1,10 @@
-import ReactGenerator, {ReactConfig} from '../../src/react/ReactGenerator'
+import ReactGenerator, {ReactConfig, ReactTarget} from '../../src/react/ReactGenerator'
 
 export interface MobileConfig extends ReactConfig {}
 
 export default class MobileGenerator extends ReactGenerator {
   subgenerator = 'mobile'
+  target = ReactTarget.mobile
 
   initializing () {
     ReactGenerator.prototype.initializing.call(this)

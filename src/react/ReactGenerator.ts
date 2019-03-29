@@ -6,6 +6,11 @@ export interface ReactConfig extends BaseConfig {
   apollo: boolean
 }
 
+export enum ReactTarget {
+  web = 'web',
+  mobile = 'mobile',
+}
+
 export default class ReactGenerator extends BaseGenerator {
   extraQuestions: Question[] = [
     {
@@ -16,6 +21,14 @@ export default class ReactGenerator extends BaseGenerator {
       store: true,
     },
   ]
+
+  target: ReactTarget = ReactTarget.web
+
+  async prompting () {
+    await BaseGenerator.prototype.prompting.call(this)
+
+    this.config.set('target', this.target)
+  }
 
   writing () {
     BaseGenerator.prototype.writing.call(this)

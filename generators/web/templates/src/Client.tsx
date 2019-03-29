@@ -16,7 +16,7 @@ declare global {
   }
 }
 
-async function main () {
+function main () {
   try {
     if (!window.__CONFIG__) {
       throw new Error('Unable to read the BrowserConfig')
@@ -25,7 +25,7 @@ async function main () {
     BrowserConfig.fromJson(window.__CONFIG__)
 
     const store = Store.create(Store.initialState)
-<% if (useApollo) { %>    const client = await ApiClient.create()
+<% if (useApollo) { %>    const client = ApiClient.create()
 <% } %>    ReactDOM.render(
       <App store={store} <% if (useApollo) { %>client={client} <% }%>routes={Routes} />,
       document.getElementById('root')
@@ -40,4 +40,4 @@ async function main () {
   }
 }
 
-main().catch(err => { throw err })
+main()

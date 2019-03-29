@@ -5,12 +5,12 @@ import {ApolloClient} from 'apollo-client'
 import {createPersistedQueryLink} from 'apollo-link-persisted-queries'
 
 <% if (useAuth0) { %>import {getAccessToken} from './AuthClient'
-<% } %>import BrowserConfig from '../BrowserConfig'
+<% } %><% if (target === 'mobile') { %>import Config from '../Config'<% } else { %>import BrowserConfig from '../BrowserConfig'<% } %>
 
 export type ApolloClient = ReturnType<typeof create>
 
 export function createDummy () {
-  const uri = BrowserConfig.get().api.endpoint
+  const uri = <% if (target === 'mobile') { %>Config.Api.endpoint<% } else { %>BrowserConfig.get().api.endpoint<% } %>
   const httpLink = createHttpLink({uri})
   const cache = new InMemoryCache()
 
@@ -18,7 +18,7 @@ export function createDummy () {
 }
 
 export function create () {
-  const uri = BrowserConfig.get().api.endpoint
+  const uri = <% if (target === 'mobile') { %>Config.Api.endpoint<% } else { %>BrowserConfig.get().api.endpoint<% } %>
   const cache = new InMemoryCache()
 
   const httpLink = createPersistedQueryLink().concat(createHttpLink({uri}))
