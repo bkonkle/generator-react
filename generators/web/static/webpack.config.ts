@@ -1,17 +1,18 @@
+/* tslint:disable:no-implicit-dependencies */
+import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin'
+import CleanWebpackPlugin from 'clean-webpack-plugin'
 import fs from 'fs'
-import path from 'path'
-import webpack, {Configuration, Plugin} from 'webpack'
-import MiniCssExtractPlugin from 'mini-css-extract-plugin'
-import TerserPlugin from 'terser-webpack-plugin'
-import WebpackBar from 'webpackbar'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
+import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin'
+import path from 'path'
 import InlineChunkHtmlPlugin from 'react-dev-utils/InlineChunkHtmlPlugin'
 import ModuleNotFoundPlugin from 'react-dev-utils/ModuleNotFoundPlugin'
-import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin'
 import WatchMissingNodeModulesPlugin from 'react-dev-utils/WatchMissingNodeModulesPlugin'
-import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin'
-import CleanWebpackPlugin from 'clean-webpack-plugin'
+import TerserPlugin from 'terser-webpack-plugin'
+import webpack, {Configuration, Plugin} from 'webpack'
 import {BundleAnalyzerPlugin} from 'webpack-bundle-analyzer'
+import WebpackBar from 'webpackbar'
 
 const babelConfigStr = fs.readFileSync('./.babelrc')
 const babelConfig = JSON.parse(babelConfigStr.toString())

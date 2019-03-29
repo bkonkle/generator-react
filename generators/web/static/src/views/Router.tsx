@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
-import {RouteProps, RouteComponentProps, withRouter} from 'react-router'
-import {Switch, Route} from 'react-router-dom'
+import {RouteComponentProps, RouteProps, withRouter} from 'react-router'
+import {Route, Switch} from 'react-router-dom'
 
 export type OnInit = (navData: Pick<RouteComponentProps<{}>, 'history' | 'location'>) =>
   Promise<void>

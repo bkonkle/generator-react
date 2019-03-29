@@ -1,6 +1,6 @@
 import React from 'react'
-import {RouteProps} from 'react-router-dom'
 import Loadable, {LoadingComponentProps} from 'react-loadable'
+import {RouteProps} from 'react-router-dom'
 
 import NotFound from './views/NotFound'
 

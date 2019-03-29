@@ -1,5 +1,5 @@
-import {applyMiddleware, combineReducers, compose, createStore} from 'redux'
 import {identity} from 'ramda'
+import {applyMiddleware, combineReducers, compose, createStore} from 'redux'
 import {reduxThunkContextMiddleware} from 'redux-thunk-context'
 
 import * as Auth from './AuthState'

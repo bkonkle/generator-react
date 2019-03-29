@@ -1,11 +1,13 @@
 #!/usr/bin/env ts-node --transpile-only
-// tslint:disable no-require-imports non-literal-require
+/* tslint:disable:no-require-imports */
+/* tslint:disable:non-literal-require */
+/* tslint:disable:no-implicit-dependencies */
 import chalk from 'chalk'
-import webpack from 'webpack'
-import yargs from 'yargs'
-import devServer, {Configuration} from 'webpack-dev-server'
 import errorOverlayMiddleware from 'react-dev-utils/errorOverlayMiddleware'
 import evalSourceMapMiddleware from 'react-dev-utils/evalSourceMapMiddleware'
+import webpack from 'webpack'
+import devServer, {Configuration} from 'webpack-dev-server'
+import yargs from 'yargs'
 
 if (!process.env.NODE_ENV) {
   // Default the Node environment to 'development'

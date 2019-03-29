@@ -1,6 +1,6 @@
 import chalk from 'chalk'
-import {Express} from 'express'
 import dotenv from 'dotenv'
+import {Express} from 'express'
 import fs from 'fs'
 
 import Server from './Server'

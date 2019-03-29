@@ -1,12 +1,14 @@
 #!/usr/bin/env ts-node --transpile-only
+/* tslint:disable:no-implicit-dependencies */
 import chalk from 'chalk'
 import fs from 'fs-extra'
 import path from 'path'
-import webpack, {Stats} from 'webpack'
-import yargs from 'yargs'
 import FileSizeReporter from 'react-dev-utils/FileSizeReporter'
 import formatWebpackMessages from 'react-dev-utils/formatWebpackMessages'
+import webpack, {Stats} from 'webpack'
+import yargs from 'yargs'
 
+// tslint:disable-next-line:no-unused-expression
 yargs.usage('$0', 'build the client in production mode').argv
 
 declare global {
