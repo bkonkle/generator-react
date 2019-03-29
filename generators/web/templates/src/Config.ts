@@ -21,7 +21,10 @@ export async function create (options: CreateOptions): Promise<Config> {
       ),
     },
     isDev,
-  }
+<% if (useApollo) { %>    api: {
+      endpoint: process.env.GRAPHQL_ENDPOINT || 'http://localhost:4000/graphql',
+    },
+<% } %>  }
 }
 
 export default {create}

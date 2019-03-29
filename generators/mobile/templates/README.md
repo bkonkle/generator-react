@@ -1,7 +1,7 @@
 # <%= name %>
-
+<% if (description) { %>
 <%= description %>
-
+<% } %>
 ## Overview
 
 This is a [React](https://facebook.github.io/react/) project built with [React Native](https://facebook.github.io/react-native/), [Expo](https://expo.io/) and [TypeScript](https://www.typescriptlang.org/).

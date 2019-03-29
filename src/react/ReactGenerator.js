@@ -10,8 +10,8 @@ class ReactGenerator extends BaseGenerator_1.default {
         this.extraQuestions = [
             {
                 type: 'confirm',
-                name: 'apollo',
-                message: 'Include react-apollo:',
+                name: 'useApollo',
+                message: 'Include React Apollo:',
                 default: false,
                 store: true,
             },
@@ -23,8 +23,14 @@ class ReactGenerator extends BaseGenerator_1.default {
         this.fs.copy(this.templatePath('../../../src/react/static/**/*'), this.destinationRoot(), {
             globOptions: { dot: true },
         });
+        // // Render shared templates from the react generator
+        // this.renderTemplates('../../../src/react/templates/**/*')
         // Move some extra dotfiles into place
         this.renameDotfiles(['babelrc']);
+        if (this.config.get('useApollo')) {
+            // Render shared templates from the react generator's apollo folder
+            this.renderTemplates('../../../src/react/apollo/templates/**/*');
+        }
     }
 }
 exports.default = ReactGenerator;

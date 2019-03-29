@@ -11,6 +11,8 @@ class ApiGenerator extends BaseGenerator_1.default {
         this.fs.copy(this.templatePath('../../../src/api/static/**/*'), this.destinationRoot(), {
             globOptions: { dot: true },
         });
+        // // Render shared templates from the api generator
+        // this.renderTemplates('../../../src/api/templates/**/*')
     }
 }
 exports.default = ApiGenerator;

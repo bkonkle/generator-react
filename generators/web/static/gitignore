@@ -71,3 +71,6 @@ dist
 
 # Merge conflict files
 *.orig
+
+# Yeoman state
+.yo-rc.json

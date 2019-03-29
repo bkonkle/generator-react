@@ -10,8 +10,8 @@ export default class ReactGenerator extends BaseGenerator {
   extraQuestions: Question[] = [
     {
       type: 'confirm',
-      name: 'apollo',
-      message: 'Include react-apollo:',
+      name: 'useApollo',
+      message: 'Include React Apollo:',
       default: false,
       store: true,
     },
@@ -25,7 +25,15 @@ export default class ReactGenerator extends BaseGenerator {
       globOptions: {dot: true},
     })
 
+    // // Render shared templates from the react generator
+    // this.renderTemplates('../../../src/react/templates/**/*')
+
     // Move some extra dotfiles into place
     this.renameDotfiles(['babelrc'])
+
+    if (this.config.get('useApollo')) {
+      // Render shared templates from the react generator's apollo folder
+      this.renderTemplates('../../../src/react/apollo/templates/**/*')
+    }
   }
 }

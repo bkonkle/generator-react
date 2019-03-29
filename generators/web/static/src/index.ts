@@ -10,7 +10,6 @@ dotenv.config()
 let replaceApp: (newApp: Express) => void
 
 export function main () {
-  const secure = process.env.PROTOCOL === 'https'
   const staticPath = `${__dirname}/../static`
   const buildPublicPath = `${__dirname}/../build/public`
   const doc = fs.readFileSync(`${buildPublicPath}/document.html`)
@@ -20,11 +19,11 @@ export function main () {
 
     // tslint:disable-next-line no-require-imports
     const NewServer: typeof Server = require('./Server').default
-    const app = NewServer.create({staticPath, buildPublicPath, doc, admin: true})
+    const app = NewServer.create({staticPath, buildPublicPath, doc})
 
     replaceApp(app)
   } else {
-    replaceApp = Server.run({secure, staticPath, buildPublicPath, doc, admin: true})
+    replaceApp = Server.run({staticPath, buildPublicPath, doc})
   }
 }
 

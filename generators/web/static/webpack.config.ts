@@ -13,7 +13,8 @@ import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin'
 import CleanWebpackPlugin from 'clean-webpack-plugin'
 import {BundleAnalyzerPlugin} from 'webpack-bundle-analyzer'
 
-import babelConfig from './babel.config'
+const babelConfigStr = fs.readFileSync('./.babelrc')
+const babelConfig = JSON.parse(babelConfigStr.toString())
 
 // Make sure any symlinks in the project folder are resolved:
 const appDirectory = fs.realpathSync(process.cwd())

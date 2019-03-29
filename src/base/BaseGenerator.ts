@@ -86,8 +86,18 @@ export default class BaseGenerator extends Base {
         type: 'input',
         name: 'keywords',
         message: 'Comma-separated project keywords:',
-        filter: keywords =>
-          keywords ? keywords.split(',').map(keyword => keyword.trim()) : [],
+        filter: keywords => keywords
+          ? Array.isArray(keywords)
+            ? keywords.map(keyword => keyword.trim())
+            : keywords.split(',').map(keyword => keyword.trim())
+          : [],
+        store: true,
+      },
+      {
+        type: 'confirm',
+        name: 'useAuth0',
+        message: 'Include Auth0 authentication:',
+        default: false,
         store: true,
       },
       ...this.extraQuestions,
@@ -109,13 +119,11 @@ export default class BaseGenerator extends Base {
       globOptions: {dot: true},
     })
 
+    // // Render shared templates from the base generator
+    // this.renderTemplates('../../../src/base/templates/**/*')
+
     // Render templates
-    this.fs.copyTpl(
-      this.templatePath('**/*'),
-      this.destinationRoot(),
-      this.config.getAll(),
-      {globOptions: {dot: true}}
-    )
+    this.renderTemplates('**/*')
 
     // Move the dotfiles into place
     this.renameDotfiles(['gitignore', 'huskyrc', 'editorconfig'])
@@ -139,5 +147,17 @@ export default class BaseGenerator extends Base {
         this.destinationPath(`.${file}`)
       )
     }
+  }
+
+  /**
+   * Render templates recursively
+   */
+  renderTemplates (templatePath: string) {
+    this.fs.copyTpl(
+      this.templatePath(templatePath),
+      this.destinationRoot(),
+      this.config.getAll(),
+      {globOptions: {dot: true}}
+    )
   }
 }

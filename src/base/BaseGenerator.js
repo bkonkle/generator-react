@@ -85,7 +85,18 @@ class BaseGenerator extends yeoman_generator_1.default {
                     type: 'input',
                     name: 'keywords',
                     message: 'Comma-separated project keywords:',
-                    filter: keywords => keywords ? keywords.split(',').map(keyword => keyword.trim()) : [],
+                    filter: keywords => keywords
+                        ? Array.isArray(keywords)
+                            ? keywords.map(keyword => keyword.trim())
+                            : keywords.split(',').map(keyword => keyword.trim())
+                        : [],
+                    store: true,
+                },
+                {
+                    type: 'confirm',
+                    name: 'useAuth0',
+                    message: 'Include Auth0 authentication:',
+                    default: false,
                     store: true,
                 },
                 ...this.extraQuestions,
@@ -104,8 +115,10 @@ class BaseGenerator extends yeoman_generator_1.default {
         this.fs.copy(this.templatePath('../static/**/*'), this.destinationRoot(), {
             globOptions: { dot: true },
         });
+        // // Render shared templates from the base generator
+        // this.renderTemplates('../../../src/base/templates/**/*')
         // Render templates
-        this.fs.copyTpl(this.templatePath('**/*'), this.destinationRoot(), this.config.getAll(), { globOptions: { dot: true } });
+        this.renderTemplates('**/*');
         // Move the dotfiles into place
         this.renameDotfiles(['gitignore', 'huskyrc', 'editorconfig']);
     }
@@ -122,6 +135,12 @@ class BaseGenerator extends yeoman_generator_1.default {
         for (const file of dotfiles) {
             this.fs.move(this.destinationPath(file), this.destinationPath(`.${file}`));
         }
+    }
+    /**
+     * Render templates recursively
+     */
+    renderTemplates(templatePath) {
+        this.fs.copyTpl(this.templatePath(templatePath), this.destinationRoot(), this.config.getAll(), { globOptions: { dot: true } });
     }
 }
 exports.default = BaseGenerator;

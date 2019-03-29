@@ -1,7 +1,7 @@
 # <%= name %>
-
+<% if (description) { %>
 <%= description %>
-
+<% } %>
 ## Overview
 
 This is an Express-based application server written in TypeScript. It uses GraphQL via [Postgraphile](https://www.graphile.org/) to communicate with the client.

@@ -1,7 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import Store from './state/Store'
+<% if (useApollo) { %>import ApiClient from './data/ApiClient'
+<% } %>import Store from './state/Store'
 import App from './views/App'
 import DummyApp from './views/DummyApp'
 import ErrorPage from './views/ErrorPage'
@@ -24,9 +25,9 @@ async function main () {
     BrowserConfig.fromJson(window.__CONFIG__)
 
     const store = Store.create(Store.initialState)
-
-    ReactDOM.render(
-      <App store={store} routes={Routes} />,
+<% if (useApollo) { %>    const client = await ApiClient.create()
+<% } %>    ReactDOM.render(
+      <App store={store} <% if (useApollo) { %>client={client} <% }%>routes={Routes} />,
       document.getElementById('root')
     )
   } catch (error) {

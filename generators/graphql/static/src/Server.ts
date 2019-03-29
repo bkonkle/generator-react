@@ -65,7 +65,6 @@ export async function main () {
   const server = http.createServer(app)
 
   server.listen(Server.port, () => {
-    // tslint:disable-next-line:no-console
     console.log(chalk.cyan(`> Started API on port ${chalk.yellow(Server.port.toString())}`))
   })
 

@@ -1,9 +1,12 @@
 export interface Config {
   user: {
-    ipAddress?: string | string[],
-    userAgent?: string | string[],
-  },
-  isDev: boolean,
+    ipAddress?: string | string[]
+    userAgent?: string | string[]
+  }
+  isDev: boolean
+  api: {
+    endpoint: string
+  }
 }
 
 /**
