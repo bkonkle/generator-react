@@ -2,7 +2,7 @@ import chalk from 'chalk'
 import {execSync as exec} from 'child_process'
 import {textSync as text} from 'figlet'
 import {basename} from 'path'
-import Base from 'yeoman-generator'
+import Base, {Question} from 'yeoman-generator'
 
 export interface BaseConfig {
   name: string
@@ -13,8 +13,9 @@ export interface BaseConfig {
   year: number
 }
 
-export default class BaseReactGenerator extends Base {
+export default class BaseGenerator extends Base {
   subgenerator = '<BASE>'
+  extraQuestions: Question[] = []
 
   /***
    * Tasks
@@ -51,33 +52,46 @@ export default class BaseReactGenerator extends Base {
   }
 
   async prompting () {
-    const answers = await this.prompt([{
-      type: 'input',
-      name: 'name',
-      message: 'Your project name:',
-      default: basename(this.destinationRoot()),
-    }, {
-      type: 'input',
-      name: 'description',
-      message: "The project's description:",
-    }, {
-      type: 'input',
-      name: 'repo',
-      message: 'The repository url:',
-      default: this.config.get('repo'),
-    }, {
-      type: 'input',
-      name: 'author',
-      message: "The project's author:",
-      default: this.config.get('author'),
-      store: true,
-    }, {
-      type: 'input',
-      name: 'keywords',
-      message: 'Comma-separated project keywords:',
-      filter: keywords =>
-        keywords ? keywords.split(',').map(keyword => keyword.trim()) : [],
-    }])
+    const config = this.config.getAll() as BaseConfig
+
+    const answers = await this.prompt([
+      {
+        type: 'input',
+        name: 'name',
+        message: 'Your project name:',
+        default: basename(this.destinationRoot()),
+        store: true,
+      },
+      {
+        type: 'input',
+        name: 'description',
+        message: "The project's description:",
+        store: true,
+      },
+      {
+        type: 'input',
+        name: 'repo',
+        message: 'The repository url:',
+        default: config.repo,
+        store: true,
+      },
+      {
+        type: 'input',
+        name: 'author',
+        message: "The project's author:",
+        default: config.author,
+        store: true,
+      },
+      {
+        type: 'input',
+        name: 'keywords',
+        message: 'Comma-separated project keywords:',
+        filter: keywords =>
+          keywords ? keywords.split(',').map(keyword => keyword.trim()) : [],
+        store: true,
+      },
+      ...this.extraQuestions,
+    ])
 
     Object.keys(answers).forEach(key => {
       this.config.set(key, answers[key])
@@ -86,7 +100,7 @@ export default class BaseReactGenerator extends Base {
 
   writing () {
     // Copy over shared static files from the base generator
-    this.fs.copy(this.templatePath('../../../src/static/**/*'), this.destinationRoot(), {
+    this.fs.copy(this.templatePath('../../../src/base/static/**/*'), this.destinationRoot(), {
       globOptions: {dot: true},
     })
 

@@ -11,6 +11,7 @@
     "cyclomatic-complexity": [true, 24],
     "eofline": true,
     "export-name": false,
+    "function-name": false,
     "import-name": false,
     "import-spacing": true,
     "interface-name": [true, "never-prefix"],

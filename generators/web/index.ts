@@ -1,26 +1,26 @@
-import BaseGenerator, {BaseConfig} from '../../src/BaseReactGenerator'
+import ReactGenerator, {ReactConfig} from '../../src/react/ReactGenerator'
 
-export interface WebConfig extends BaseConfig {}
+export interface WebConfig extends ReactConfig {}
 
-export default class WebGenerator extends BaseGenerator {
+export default class WebGenerator extends ReactGenerator {
   subgenerator = 'web'
 
   initializing () {
-    BaseGenerator.prototype.initializing.call(this)
+    ReactGenerator.prototype.initializing.call(this)
   }
 
   async prompting () {
-    return BaseGenerator.prototype.prompting.call(this)
+    return ReactGenerator.prototype.prompting.call(this)
   }
 
   writing () {
-    BaseGenerator.prototype.writing.call(this)
+    ReactGenerator.prototype.writing.call(this)
 
     // Move some extra dotfiles into place
     this.renameDotfiles(['dockerignore'])
   }
 
   install () {
-    BaseGenerator.prototype.install.call(this)
+    ReactGenerator.prototype.install.call(this)
   }
 }

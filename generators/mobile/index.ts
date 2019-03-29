@@ -1,23 +1,23 @@
-import BaseGenerator, {BaseConfig} from '../../src/BaseReactGenerator'
+import ReactGenerator, {ReactConfig} from '../../src/react/ReactGenerator'
 
-export interface MobileConfig extends BaseConfig {}
+export interface MobileConfig extends ReactConfig {}
 
-export default class MobileGenerator extends BaseGenerator {
+export default class MobileGenerator extends ReactGenerator {
   subgenerator = 'mobile'
 
   initializing () {
-    BaseGenerator.prototype.initializing.call(this)
+    ReactGenerator.prototype.initializing.call(this)
   }
 
   async prompting () {
-    return BaseGenerator.prototype.prompting.call(this)
+    return ReactGenerator.prototype.prompting.call(this)
   }
 
   writing () {
-    BaseGenerator.prototype.writing.call(this)
+    ReactGenerator.prototype.writing.call(this)
   }
 
   install () {
-    BaseGenerator.prototype.install.call(this)
+    ReactGenerator.prototype.install.call(this)
   }
 }

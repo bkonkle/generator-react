@@ -30,8 +30,6 @@ npm install -g @bkonkle/generator-react
 
 ## Usage
 
-Currently, my only generator builds a simple React web project with very light server preloading for dynamic environment variables. This will likely be expanded in the future to cover other types of projects as well - including generators for React Native or Electron applications and for API servers to support them.
-
 ### Yeoman
 
 First, you'll need to install Yeoman to use this generator.
@@ -40,7 +38,7 @@ First, you'll need to install Yeoman to use this generator.
 yarn global add yo
 ```
 
-### React
+### Web
 
 To bootstrap a React web project, use the `web` generator:
 
@@ -51,6 +49,8 @@ cd my-new--web-project
 yo @bkonkle/react:web
 ```
 
+### Mobile
+
 To bootstrap a React Native mobile project, use the `mobile` generator:
 
 ```sh
@@ -58,6 +58,17 @@ mkdir my-new-mobile-project
 cd my-new--mobile-project
 
 yo @bkonkle/react:mobile
+```
+
+### GraphQL
+
+To bootstrap a GraphQL Api based on Postgraphile, use the `graphql` generator:
+
+```sh
+mkdir my-new-graphql-project
+cd my-new--graphql-project
+
+yo @bkonkle/react:graphql
 ```
 
 Answer the questions, and you'll have a brand new web application set up in your current directory. Tada! 🎉
