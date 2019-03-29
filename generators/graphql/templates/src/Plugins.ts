@@ -5,14 +5,14 @@ import {GraphQLErrorExtended} from 'postgraphile'
 
 import {Environment} from './Config'
 
-const debug = Debug('allay-api:Plugins')
+const debug = Debug('<%= name %>-api:Plugins')
 
 export async function pgSettings (req: Request) {
   const sub = req.user && req.user.sub
 
   return {
     'jwt.claims.sub': sub,
-    role: 'allay_user',
+    role: '<%= name %>_user',
   }
 }
 
