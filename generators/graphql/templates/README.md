@@ -25,11 +25,7 @@ To use Postgres locally:
 
 ## Running the Application
 
-To run in development, use a TypeScript watcher on a separate tab first:
-
-    $ yarn build.ts.watch
-
-Then run the server in development mode:
+To run the server in development mode:
 
     $ yarn dev
 

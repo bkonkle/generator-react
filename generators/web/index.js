@@ -11,27 +11,27 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const BaseReactGenerator_1 = __importDefault(require("../../src/BaseReactGenerator"));
-class WebGenerator extends BaseReactGenerator_1.default {
+const ReactGenerator_1 = __importDefault(require("../../src/react/ReactGenerator"));
+class WebGenerator extends ReactGenerator_1.default {
     constructor() {
         super(...arguments);
         this.subgenerator = 'web';
     }
     initializing() {
-        BaseReactGenerator_1.default.prototype.initializing.call(this);
+        ReactGenerator_1.default.prototype.initializing.call(this);
     }
     prompting() {
         return __awaiter(this, void 0, void 0, function* () {
-            return BaseReactGenerator_1.default.prototype.prompting.call(this);
+            return ReactGenerator_1.default.prototype.prompting.call(this);
         });
     }
     writing() {
-        BaseReactGenerator_1.default.prototype.writing.call(this);
+        ReactGenerator_1.default.prototype.writing.call(this);
         // Move some extra dotfiles into place
         this.renameDotfiles(['dockerignore']);
     }
     install() {
-        BaseReactGenerator_1.default.prototype.install.call(this);
+        ReactGenerator_1.default.prototype.install.call(this);
     }
 }
 exports.default = WebGenerator;

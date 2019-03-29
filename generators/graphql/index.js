@@ -11,26 +11,26 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const ReactGenerator_1 = __importDefault(require("../../src/react/ReactGenerator"));
-class MobileGenerator extends ReactGenerator_1.default {
+const ApiGenerator_1 = __importDefault(require("../../src/api/ApiGenerator"));
+class GraphQLGenerator extends ApiGenerator_1.default {
     constructor() {
         super(...arguments);
-        this.subgenerator = 'mobile';
+        this.subgenerator = 'graphql';
     }
     initializing() {
-        ReactGenerator_1.default.prototype.initializing.call(this);
+        ApiGenerator_1.default.prototype.initializing.call(this);
     }
     prompting() {
         return __awaiter(this, void 0, void 0, function* () {
-            return ReactGenerator_1.default.prototype.prompting.call(this);
+            return ApiGenerator_1.default.prototype.prompting.call(this);
         });
     }
     writing() {
-        ReactGenerator_1.default.prototype.writing.call(this);
+        ApiGenerator_1.default.prototype.writing.call(this);
     }
     install() {
-        ReactGenerator_1.default.prototype.install.call(this);
+        ApiGenerator_1.default.prototype.install.call(this);
     }
 }
-exports.default = MobileGenerator;
+exports.default = GraphQLGenerator;
 //# sourceMappingURL=index.js.map

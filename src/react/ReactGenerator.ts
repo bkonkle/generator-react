@@ -24,5 +24,8 @@ export default class ReactGenerator extends BaseGenerator {
     this.fs.copy(this.templatePath('../../../src/react/static/**/*'), this.destinationRoot(), {
       globOptions: {dot: true},
     })
+
+    // Move some extra dotfiles into place
+    this.renameDotfiles(['babelrc'])
   }
 }

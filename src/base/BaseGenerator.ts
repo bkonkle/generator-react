@@ -118,7 +118,7 @@ export default class BaseGenerator extends Base {
     )
 
     // Move the dotfiles into place
-    this.renameDotfiles(['gitignore', 'babelrc', 'huskyrc', 'editorconfig'])
+    this.renameDotfiles(['gitignore', 'huskyrc', 'editorconfig'])
   }
 
   install () {
