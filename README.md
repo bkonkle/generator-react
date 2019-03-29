@@ -1,6 +1,6 @@
 # @bkonkle/generator-react
 
-[![npm](https://img.shields.io/npm/v/generator-react.svg)](https://www.npmjs.com/package/generator-react) [![license](https://img.shields.io/github/license/bkonkle/generator-react.svg)](LICENSE)
+[![npm](https://img.shields.io/npm/v/@bkonkle/generator-react.svg)](https://www.npmjs.com/package/generator-react) [![license](https://img.shields.io/github/license/bkonkle/generator-react.svg)](LICENSE)
 
 ```
                                           $$\
