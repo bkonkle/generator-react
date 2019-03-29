@@ -3,7 +3,7 @@ import {Question} from 'yeoman-generator'
 import BaseGenerator, {BaseConfig} from '../base/BaseGenerator'
 
 export interface ReactConfig extends BaseConfig {
-  apollo: boolean
+  useApollo: boolean
 }
 
 export enum ReactTarget {
@@ -33,6 +33,8 @@ export default class ReactGenerator extends BaseGenerator {
   writing () {
     BaseGenerator.prototype.writing.call(this)
 
+    const config = this.config.getAll() as ReactConfig
+
     // Copy over shared static files from the react generator
     this.fs.copy(this.templatePath('../../../src/react/static/**/*'), this.destinationRoot(), {
       globOptions: {dot: true},
@@ -44,7 +46,7 @@ export default class ReactGenerator extends BaseGenerator {
     // Move some extra dotfiles into place
     this.renameDotfiles(['babelrc'])
 
-    if (this.config.get('useApollo')) {
+    if (config.useApollo) {
       // Render shared templates from the react generator's apollo folder
       this.renderTemplates('../../../src/react/apollo/templates/**/*')
     }

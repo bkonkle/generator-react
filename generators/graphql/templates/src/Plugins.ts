@@ -1,6 +1,6 @@
-import {Request} from 'express'
 import Debug from 'debug'
-import {GraphQLError, formatError} from 'graphql'
+import {Request} from 'express'
+import {formatError, GraphQLError} from 'graphql'
 import {GraphQLErrorExtended} from 'postgraphile'
 
 import {Environment} from './Config'

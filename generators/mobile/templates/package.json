@@ -64,7 +64,7 @@
     "tslint-config-standard": "^8.0.1",
     "tslint-microsoft-contrib": "^6.1.0",
     "tslint-react": "^3.6.0",
-    "typescript": "3.3.3333",
+    "typescript": "3.4.1",
     "ts-essentials": "^2.0.3"
   },
   "lint-staged": {

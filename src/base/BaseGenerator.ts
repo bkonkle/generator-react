@@ -11,6 +11,7 @@ export interface BaseConfig {
   author: string
   keywords: string[]
   year: number
+  useAuth0: boolean
 }
 
 export default class BaseGenerator extends Base {

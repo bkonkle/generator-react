@@ -1,5 +1,5 @@
-import parseDbUrl from 'parse-database-url'
 import dotenv from 'dotenv'
+import parseDbUrl from 'parse-database-url'
 
 dotenv.config()
 

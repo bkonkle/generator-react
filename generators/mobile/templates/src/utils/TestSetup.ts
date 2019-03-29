@@ -22,7 +22,6 @@ class MockDate extends RealDate {
     return new RealDate(MockDate.frozenTime)
   }
 
-  // tslint:disable-next-line:function-name
   static now () {
     return new RealDate(MockDate.frozenTime).getTime()
   }

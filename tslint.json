@@ -34,7 +34,6 @@
     "no-eval": true,
     "no-http-string": false,
     "no-multiline-string": false,
-    "no-namespace": true,
     "no-non-null-assertion": false,
     "no-null-keyword": false,
     "no-relative-imports": false,

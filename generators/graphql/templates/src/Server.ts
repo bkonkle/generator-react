@@ -1,21 +1,21 @@
-import express, {Express, Request} from 'express'
-import http from 'http'
-import morgan from 'morgan'
 import bodyParser from 'body-parser'
 import chalk from 'chalk'
-import jwt from 'express-jwt'
-import jwks from 'jwks-rsa'
-import playground from 'graphql-playground-middleware-express'
+import express, {Express, Request} from 'express'
 import noop from 'express-noop'
-import {PostGraphileOptions, postgraphile} from 'postgraphile'
 import {MiddlewareOptions as PlaygroundOptions} from 'graphql-playground-html'
+import playground from 'graphql-playground-middleware-express'
+import http from 'http'
+import morgan from 'morgan'
+<% if (useAuth0) { %>import jwt from 'express-jwt'
+import jwks from 'jwks-rsa'
+<% } %>import {postgraphile, PostGraphileOptions} from 'postgraphile'
 
-import {Database, Server, Auth, Environment} from './Config'
+import {<% if (useAuth0) { %>Auth, <% } %>Database, Environment, Server} from './Config'
 import Plugins from './Plugins'
 
 export async function create () {
   const app = express()
-
+<% if (useAuth0) { %>
   const jwtCheck = jwt({
     secret: jwks.expressJwtSecret({
       cache: true,
@@ -28,7 +28,7 @@ export async function create () {
     algorithms: ['RS256'],
     credentialsRequired: !Environment.isDev,
   })
-
+<% } %>
   const options: PostGraphileOptions = {
     appendPlugins: Plugins.plugins,
     // @ts-ignore - express vs plain http
@@ -52,8 +52,8 @@ export async function create () {
     .disable('x-powered-by')
     .use(morgan(Environment.isDev ? 'dev' : 'combined'))
     .use(bodyParser.json())
-    .use(jwtCheck)
-    .get('/graphql', Environment.isDev ? playground(playgroundOpts) : noop())
+<% if (useAuth0) { %>    .use(jwtCheck)
+<% } %>    .get('/graphql', Environment.isDev ? playground(playgroundOpts) : noop())
     .use(postgraphile(Database.url, 'public', options))
 
   return app

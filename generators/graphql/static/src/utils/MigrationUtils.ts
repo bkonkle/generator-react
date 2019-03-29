@@ -19,7 +19,7 @@ export const handleForeignUuid = (table: CreateTableBuilder) => (
 )
 
 export const schema = (knex: Knex) => {
-  return function columns (table: CreateTableBuilder) {
+  return (table: CreateTableBuilder) => {
     return {
       primaryUuid: handlePrimaryUuid(knex, table),
       foreignUuid: handleForeignUuid(table),
