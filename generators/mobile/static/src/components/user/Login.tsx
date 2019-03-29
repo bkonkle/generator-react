@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {Text, View} from 'react-native'
-import {withNavigation, NavigationInjectedProps} from 'react-navigation'
+import {NavigationInjectedProps, withNavigation} from 'react-navigation'
 
 import {NavigationParams} from '../../Types'
 

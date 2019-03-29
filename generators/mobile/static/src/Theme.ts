@@ -1,5 +1,5 @@
+import {max, min} from 'ramda'
 import {Dimensions} from 'react-native'
-import {min, max} from 'ramda'
 
 export const Units = {
   vmin: min(
