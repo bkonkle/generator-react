@@ -67,7 +67,7 @@ my-new-web-project
 │    └── run.ts - run the project in production mode using the built bundle
 ├── src
 │    ├── __tests__ - a stub folder for Jest tests
-│    ├── components - components handle rendering and presentation
+│    ├── components - components that handle rendering and presentation
 │    ├── [data] - (if useApollo is selected) a folder for data-related modules
 │    │    ├── [ApiClient.ts] - (if useApollo is selected) code to initialize an Apollo GraphQL client
 │    │    └── [AuthClient.ts] - (if useAuth0 is selected) code to initialize Auth0 authentication
@@ -104,6 +104,30 @@ cd my-new--mobile-project
 yo @bkonkle/react:mobile
 ```
 
+This results in a React Native application using Expo, using [React Navigation] for routing. 
+
+You'll get a layout that looks like this (abbreviated):
+
+```
+my-new-mobile-project
+├── assets - static resources such as images
+├── src
+│    ├── __tests__ - a stub folder for Jest tests
+│    ├── components - components that handle rendering and presentation
+│    ├── [data] - (same as the web generator)
+│    ├── screens - screens compose components and handle logic and integration
+│    │    └── LoginScreen.tsx - the default route, intended to render a login experience
+│    ├── state - (same as the web generator)
+│    ├── Config.ts - sets up config values for all environments, then exports the current values
+│    ├── Routes.ts - uses react-navigation to describe available screens
+│    ├── Theme.ts - some basic app-wide theming tools
+│    └── Types.ts - some general types used across the app
+├── .babelrc - includes the standard Expo preset
+├── App.js - the Expo entry point, which imports the App.tsx component
+├── tsconfig.json - (same as the web generator)
+└── tslint.json - (same as the web generator)
+```
+
 ### GraphQL
 
 To bootstrap a GraphQL Api based on Postgraphile, use the `graphql` generator:
@@ -119,4 +143,5 @@ Answer the questions, and you'll have a brand new web application set up in your
 
 [CRA]: https://github.com/facebook/create-react-app
 [Razzle]: https://github.com/jaredpalmer/razzle
-[Express]: https://expressjs.com/
+[Express]: https://expressjs.com
+[React Navigation]: https://reactnavigation.org/
