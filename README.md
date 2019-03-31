@@ -43,6 +43,8 @@ yarn global add yo
 
 ## Usage
 
+Run one of the generators below, answer the questions, and you'll have a brand new web application set up in your current directory. Tada! 🎉
+
 ### Web
 
 To bootstrap a React web project, use the `web` generator:
@@ -54,7 +56,7 @@ cd my-new-web-project
 yo @bkonkle/react:web
 ```
 
-This results in a build setup adapted from [CRA] to allow prefetching (or even server rendering, if you want) and to support runtime environment variables. It uses a Webpack config adapted from [CRA] with tweaks from [Razzle] and lots of customizations. The dev process is adapted from [Razzle], and it runs a base [Express] process at the requested port, launching the Webpack Dev Server at port + 1 to handle hot reloaded resources.
+This results in a build setup adapted from [CRA] to allow prefetching (or even server rendering, if you want) and to support runtime environment variables. It uses a Webpack config adapted from [CRA] with tweaks from [Razzle] and lots of customizations. The dev process is adapted from [Razzle], and it runs a base [Express] process at the requested port, launching the Webpack Dev Server at port + 1 to handle hot reloaded resources. [Apollo] and [Auth0] are optionally included.
 
 You'll get a layout that looks like this (abbreviated):
 
@@ -95,7 +97,7 @@ my-new-web-project
 
 ### Mobile
 
-To bootstrap a React Native mobile project, use the `mobile` generator:
+To bootstrap a [React Native] mobile project, use the `mobile` generator:
 
 ```sh
 mkdir my-new-mobile-project
@@ -104,7 +106,7 @@ cd my-new--mobile-project
 yo @bkonkle/react:mobile
 ```
 
-This results in a React Native application using Expo, using [React Navigation] for routing. 
+This results in a [React Native] application using [Expo], with [React Navigation] for routing. 
 
 You'll get a layout that looks like this (abbreviated):
 
@@ -139,9 +141,32 @@ cd my-new--graphql-project
 yo @bkonkle/react:graphql
 ```
 
-Answer the questions, and you'll have a brand new web application set up in your current directory. Tada! 🎉
+This results in an [Express] API using [Postgraphile] and [Playground] as middleware.
+
+```
+my-new-graphql-project
+├── migrations - database schema migrations written in TypeScript and using Knex
+├── sql - sql function definitions that are loaded into Postgres
+├── src
+│    ├── __tests__ - a stub folder for Jest tests
+│    ├── utils - assorted utility modules
+│    │    └── MigrationUtils.ts - utilities for Knex schema migrations
+│    ├── Config.ts - reads the environment and exports various config namespaces
+│    ├── Plugins.ts - Postgraphile plugins to extend the GraphQL schema
+│    ├── Server.ts - the main Express pipeline with Postgraphile and Playground
+│    └── Types.ts - some general types used across the app
+├── knexfile.js - Knex schema migration config
+├── tsconfig.json - (same as the web generator)
+└── tslint.json - (same as the web generator)
+```
 
 [CRA]: https://github.com/facebook/create-react-app
 [Razzle]: https://github.com/jaredpalmer/razzle
 [Express]: https://expressjs.com
-[React Navigation]: https://reactnavigation.org/
+[Apollo]: https://www.apollographql.com
+[Auth0]: https://auth0.com
+[React Native]: https://facebook.github.io/react-native
+[Expo]: https://expo.io
+[React Navigation]: https://reactnavigation.org
+[Postgraphile]: https://www.graphile.org/postgraphile
+[Playground]: https://github.com/prisma/graphql-playground
