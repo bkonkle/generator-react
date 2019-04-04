@@ -4,7 +4,7 @@ import parseDbUrl from 'parse-database-url'
 dotenv.config()
 
 export namespace Database {
-  export const url = process.env.DATABASE_URL || 'postgres://<%= name %>-root@localhost:5432/<%= name %>'
+  export const url = process.env.DATABASE_URL || 'postgres://<%= name %>_root@localhost:5432/<%= name %>'
   export const config = parseDbUrl(url)
   export const {database, user, name, username, password, hostname, host, port} = config
   export const poolMin = Number(process.env.DATABASE_POOL_MIN || '0')

@@ -2,7 +2,7 @@ require('ts-node/register/transpile-only')
 
 const parseDbUrl = require('parse-database-url')
 
-const dbUrl = process.env.DATABASE_URL || 'postgres://<%= name %>-root@localhost:5432/<%= name %>'
+const dbUrl = process.env.DATABASE_URL || 'postgres://<%= name %>_root@localhost:5432/<%= name %>'
 
 const dbConfig = parseDbUrl(dbUrl)
 

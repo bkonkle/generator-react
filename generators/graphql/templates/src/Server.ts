@@ -26,7 +26,7 @@ export async function create () {
     audience: Auth.audience,
     issuer: Auth.issuer,
     algorithms: ['RS256'],
-    credentialsRequired: !Environment.isDev,
+    credentialsRequired: false,
   })
 <% } %>
   const options: PostGraphileOptions = {
@@ -54,10 +54,10 @@ export async function create () {
     .get('/', (_req, res) => {
       res.send('ok')
     })
-    .use(bodyParser.json())
     .get('/graphql', Environment.isDev ? playground(playgroundOpts) : noop())
 <% if (useAuth0) { %>    .use(jwtCheck)
-<% } %>    .use(postgraphile(Database.url, 'public', options))
+<% } %>    .use(bodyParser.json())
+    .use(postgraphile(Database.url, 'public', options))
 
   return app
 }

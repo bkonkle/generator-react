@@ -20,8 +20,8 @@ This should install the ReasonML and BuckleScript platform to compile the code t
 
 To use Postgres locally:
 
-    $ createuser -s <%= name %>-root
-    $ createdb <%= name %> -O <%= name %>-root
+    $ createuser -s <%= name %>_root
+    $ createdb <%= name %> -O <%= name %>_root
 
 ## Running the Application
 

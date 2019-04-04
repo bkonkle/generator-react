@@ -28,7 +28,7 @@ export async function up (knex: Knex) {
   await knex.raw('DROP ROLE IF EXISTS <%= name %>_user;')
   await knex.raw('CREATE ROLE <%= name %>_user;')
   await knex.raw(`GRANT USAGE ON SCHEMA public TO <%= name %>_user;`)
-  await knex.raw (`GRANT <%= name %>_user TO <%= name %>_root`)
+  await knex.raw(`GRANT <%= name %>_user TO <%= name %>_root;`)
 
   // user
   await knex.schema.createTable('user', table => {

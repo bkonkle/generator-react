@@ -1,7 +1,7 @@
 // Set the test environment
 process.env.NODE_ENV = 'test'
 
-const dbUrl = process.env.DATABASE_URL || 'postgres://cf-root@localhost:5432/communityfunded'
+const dbUrl = process.env.DATABASE_URL || 'postgres://<%= name %>_root@localhost:5432/<%= name %>'
 
 const RealDate = Date
 
