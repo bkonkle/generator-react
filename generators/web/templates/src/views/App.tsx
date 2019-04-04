@@ -1,4 +1,4 @@
-import React, {SFC} from 'react'
+import React, {FC} from 'react'
 <% if (useApollo) {%>import {ApolloProvider} from 'react-apollo'
 <% } %>import {Provider} from 'react-redux'
 import {RouteProps} from 'react-router'
@@ -15,7 +15,7 @@ export interface AppProps {
   onInit?: OnInit,
 }
 
-const App: SFC<AppProps> = ({store,<% if (useApollo) { %> client,<% } %> routes, onInit}) => (
+const App: FC<AppProps> = ({store,<% if (useApollo) { %> client,<% } %> routes, onInit}) => (
 <% if (useApollo) { %>  <ApolloProvider client={client}>
   <% } %>  <Provider store={store}>
 <% if (useApollo) { %>  <% } %>    <BrowserRouter>
