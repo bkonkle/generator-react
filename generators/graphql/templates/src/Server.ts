@@ -51,10 +51,13 @@ export async function create () {
   app
     .disable('x-powered-by')
     .use(morgan(Environment.isDev ? 'dev' : 'combined'))
+    .get('/', (_req, res) => {
+      res.send('ok')
+    })
     .use(bodyParser.json())
+    .get('/graphql', Environment.isDev ? playground(playgroundOpts) : noop())
 <% if (useAuth0) { %>    .use(jwtCheck)
-<% } %>    .get('/graphql', Environment.isDev ? playground(playgroundOpts) : noop())
-    .use(postgraphile(Database.url, 'public', options))
+<% } %>    .use(postgraphile(Database.url, 'public', options))
 
   return app
 }
