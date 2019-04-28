@@ -5,6 +5,10 @@ module.exports = {
     '^.+\\.tsx?$': 'ts-jest'
   },
   testRegex: '(/__tests__/.*(\\.|/)(test|spec))\\.(jsx?|tsx?)$',
+  testURL: 'http://localhost',
+  roots: [
+    '<rootDir>/src/'
+  ],
   testPathIgnorePatterns: [
     '/node_modules/',
     '/lib/',
@@ -13,7 +17,6 @@ module.exports = {
     '<rootDir>/node_modules/',
     '<rootDir>/lib/'
   ],
-  testURL: 'http://localhost',
   moduleFileExtensions: [
     'ts',
     'tsx',
