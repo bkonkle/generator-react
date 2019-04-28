@@ -1,6 +1,6 @@
 {
   "name": "@bkonkle/generator-react",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "description": "A set of generators for React",
   "author": "Brandon Konkle <brandon@konkle.us>",
   "license": "BSD-2-Clause",
