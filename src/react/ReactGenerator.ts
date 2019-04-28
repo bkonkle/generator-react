@@ -1,4 +1,3 @@
-import {sync as mkdirp} from 'mkdirp'
 import {Question} from 'yeoman-generator'
 
 import BaseGenerator, {BaseConfig} from '../base/BaseGenerator'
